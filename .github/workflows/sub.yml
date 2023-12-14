@@ -1,7 +1,7 @@
 on:
   workflow_call:    
 jobs:
-  _:
+  job:
     runs-on: ubuntu-latest
     steps:
       - name: Does it work?

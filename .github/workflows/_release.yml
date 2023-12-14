@@ -1,0 +1,9 @@
+on:
+  workflow_call:    
+  
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do some releasing
+        run: echo "Releasing complete"

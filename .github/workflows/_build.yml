@@ -1,8 +1,9 @@
 on:
   workflow_call:    
+  
 jobs:
   job:
     runs-on: ubuntu-latest
     steps:
-      - name: Does it work?
-        run: echo "Hello World"
+      - name: Do some building
+        run: echo "Building complete"

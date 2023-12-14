@@ -1,0 +1,20 @@
+on:
+  workflow_call:    
+    inputs:
+      python:
+        type: string
+        description: The version of python to use
+        default: "3.11"
+      pip_install:
+        type: string
+        description: Arguments for pip install
+        default: "-e .[dev]"
+
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install some packages
+        run: echo "Pip install ${{ inputs.pip_install }}"
+      - name: Do some testing
+        run: echo "Testing complete on python ${{ inputs.python }}"

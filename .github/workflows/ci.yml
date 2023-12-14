@@ -1,0 +1,33 @@
+name: Code CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+
+  build:
+    # pull requests are a duplicate of a branch push if within the same repo.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository    
+    uses: ./.github/workflows/_build.yml
+
+  lint:
+    # pull requests are a duplicate of a branch push if within the same repo.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository    
+    uses: ./.github/workflows/_lint.yml
+
+  test:
+    # pull requests are a duplicate of a branch push if within the same repo.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository    
+    strategy:        
+      matrix:
+        python: ["3.9", "3.10", "3.11"]
+      fail-fast: False
+    uses: ./.github/workflows/_lint.yml
+    with:
+      python: ${{ matrix.python }}
+
+  release:
+    needs: build
+    if: ${{ github.event_name == 'push' && github.ref_type == 'tag' }}
+    uses: ./.github/workflows/_release.yml

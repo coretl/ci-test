@@ -3,6 +3,7 @@ on:
   
 jobs:
   job:
+    name: ""
     runs-on: ubuntu-latest
     steps:
       - name: Do some releasing

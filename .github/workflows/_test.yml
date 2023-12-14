@@ -12,7 +12,7 @@ on:
 
 jobs:
   job:
-    name: "Test on Python ${{ inputs.python }}"
+    name: ""
     runs-on: ubuntu-latest
     steps:
       - name: Install some packages

@@ -6,3 +6,8 @@ jobs:
     steps:
       - name: Does it work?
         run: echo "Hello World"
+  lint2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Does it work again?
+        run: echo "Hello World"

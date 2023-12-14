@@ -11,6 +11,7 @@ jobs:
         - if: ${{ hashFiles('./.github/workflows/sub.yml') != '' }}
           run: echo pypi=1 >> "$GITHUB_ENV"
 
-  lint:    
+  lint:
+    needs: build
     if: ${{ github.env.pypi }}
     uses: ./.github/workflows/sub.yml

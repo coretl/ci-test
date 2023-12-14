@@ -10,10 +10,12 @@ jobs:
         - uses: actions/checkout@v4
         - if: ${{ hashFiles('./.github/workflows/sub.yml') != '' }}
           run: echo pypi=1 >> "$GITHUB_ENV"
-        - if: ${{ github.env.pypi }}
+        - if: ${{ env.pypi }}
           run: echo "it worked"
 
   lint:
     needs: build
-    if: ${{ github.env.pypi }}
-    uses: ./.github/workflows/sub.yml
+    runs-on: ubuntu-latest
+    steps:
+        - if: ${{ env.pypi }}
+          uses: ./.github/workflows/sub.yml

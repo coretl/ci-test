@@ -11,8 +11,7 @@ on:
         default: "-e .[dev]"
 
 jobs:
-  job:
-    name: " "
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Install some packages

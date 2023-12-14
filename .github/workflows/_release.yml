@@ -2,8 +2,7 @@ on:
   workflow_call:    
   
 jobs:
-  job:
-    name: " "
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Do some releasing

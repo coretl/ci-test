@@ -16,7 +16,6 @@ jobs:
     
   lint:
     needs: build
-    runs-on: ubuntu-latest
-    steps:
-        - if: ${{ needs.build.outputs.pypi }}
-          uses: ./.github/workflows/sub.yml
+    
+    if: ${{ needs.build.outputs.pypi }}
+    uses: ./.github/workflows/sub.yml

@@ -23,7 +23,7 @@ jobs:
       matrix:
         python: ["3.9", "3.10", "3.11"]
       fail-fast: False
-    uses: ./.github/workflows/_lint.yml
+    uses: ./.github/workflows/_test.yml
     with:
       python: ${{ matrix.python }}
 

@@ -29,5 +29,5 @@ jobs:
 
   release:
     needs: build
-    if: ${{ github.event_name == 'push' && github.ref_type == 'tag' }}
+    if: github.ref_type == 'tag'
     uses: ./.github/workflows/_release.yml

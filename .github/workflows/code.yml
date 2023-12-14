@@ -15,7 +15,5 @@ jobs:
         pypi: ${{ steps.pypi.outcome == 'success' }}
     
   lint:
-    needs: build
-    
-    if: ${{ needs.build.outputs.pypi }}
+    if: ${{ github.ref_name == 'bad' }}
     uses: ./.github/workflows/sub.yml

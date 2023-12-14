@@ -4,5 +4,5 @@ on:
   push:
 
 jobs:
-  lint:
-    uses: ./.github/workflows/sub.yml
+  lint:    
+    uses: ./.github/workflows/sub2.yml

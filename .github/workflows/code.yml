@@ -13,4 +13,4 @@ jobs:
 
   lint:    
     if: ${{ github.env.pypi }}
-    uses: ./.github/workflows/sub2.yml
+    uses: ./.github/workflows/sub.yml

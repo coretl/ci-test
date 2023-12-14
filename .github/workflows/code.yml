@@ -8,14 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v4
-        - if: ${{ hashFiles('./.github/workflows/sub.yml') != '' }}
-          run: echo pypi=1 >> "$GITHUB_ENV"
-        - if: ${{ env.pypi }}
-          run: echo "it worked"
-
+        - id: pypi
+          if: ${{ hashFiles('./.github/workflows/sub.yml') != '' }}
+          run: echo "Will run PyPI publishing"
+    outputs:
+        pypi: ${{ steps.pypi.outcome == 'success' }}
+    
   lint:
     needs: build
     runs-on: ubuntu-latest
     steps:
-        - if: ${{ env.pypi }}
+        - if: ${{ needs.build.outputs.pypi }}
           uses: ./.github/workflows/sub.yml

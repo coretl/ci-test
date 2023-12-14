@@ -4,5 +4,13 @@ on:
   push:
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v4
+        - if: ${{ hashFiles('./.github/workflows/sub.yml') != '' }}
+          run: echo pypi=1 >> "$GITHUB_ENV"
+
   lint:    
+    if: ${{ github.env.pypi }}
     uses: ./.github/workflows/sub2.yml

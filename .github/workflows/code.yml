@@ -1,0 +1,13 @@
+name: Code CI
+
+on:
+  push:
+
+jobs:
+  lint:
+    # pull requests are a duplicate of a branch push if within the same repo.
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Does it work?
+        run: echo "Hello World"

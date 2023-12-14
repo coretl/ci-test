@@ -12,7 +12,7 @@ on:
 
 jobs:
   job:
-    name: ""
+    name: " "
     runs-on: ubuntu-latest
     steps:
       - name: Install some packages
